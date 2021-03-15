@@ -13,7 +13,7 @@ subset_data <- function(data){
 }
 
 
-create_model_plot <- function(data){
+create_model_plot <- function(data, out_path){
   
   bike_model_plot <- ggplot(data = data,
                             aes(x = temp, y = total_riders)) +
@@ -21,7 +21,7 @@ create_model_plot <- function(data){
     geom_smooth(method = "lm") +
     facet_wrap(. ~ season)
   
-  ggsave(filename = "figures/bike_model_plot.png",
+  ggsave(filename = out_path,
          plot = bike_model_plot,
          width = 8, height = 8, units = "in")
   
